@@ -15,7 +15,7 @@ resource "azurerm_storage_container" "mydata" {
 resource "azurerm_storage_blob" "sample" {
   name                   = "sample.txt"
   storage_account_name   = azurerm_storage_account.san1027.name
-  storage_container_name = azurerm_storage_container.data.name
+  storage_container_name = azurerm_storage_container.mydata.name
   type                   = "Block"
   source                 = "./sample.txt"
 }
