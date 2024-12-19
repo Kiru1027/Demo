@@ -1,4 +1,4 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "Kirubate"
+  name     = "Kiru"
   location = "East US"
 }
