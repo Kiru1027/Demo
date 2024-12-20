@@ -4,18 +4,18 @@ resource "azurerm_storage_account" "san1027" {
   location                      = azurerm_resource_group.rg.location
   account_tier                  = "Standard"
   account_replication_type      = "LRS"
-  public_network_access_enabled = false
+  public_network_access_enabled = true
 }
 
-resource "azurerm_storage_container" "con-Kiru" {
-  name                  = "con-Kiru"
+resource "azurerm_storage_container" "conkiru" {
+  name                  = "conkiru"
   storage_account_name  = azurerm_storage_account.san1027.name
   container_access_type = "private"
 }
 resource "azurerm_storage_blob" "sample" {
   name                   = "sample.txt"
   storage_account_name   = azurerm_storage_account.san1027.name
-  storage_container_name = azurerm_storage_container.con-Kiru.name
+  storage_container_name = azurerm_storage_container.conkiru.name
   type                   = "Block"
   source                 = "./sample.txt"
 }
